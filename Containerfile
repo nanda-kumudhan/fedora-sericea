@@ -7,10 +7,9 @@ RUN for p in power-profiles-daemon tuned-ppd; do \
 
 RUN dnf install -y \
       materia-gtk-theme papirus-icon-theme \
-      thunar-archive-plugin thunar-media-tags-plugin thunar-volman \
-      tumbler \
+      thunar-media-tags-plugin thunar-volman \
       zathura zathura-pdf-poppler mpv \
-      wf-recorder \ NetworkManager-tui
+      wf-recorder NetworkManager-tui \
       NetworkManager-openconnect NetworkManager-openconnect-gnome openconnect \
  && dnf clean all
 
