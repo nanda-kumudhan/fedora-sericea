@@ -7,6 +7,7 @@ RUN dnf install -y \
     zathura-pdf-poppler \
     mpv \
     wf-recorder \
+    wdisplays \
     NetworkManager-tui \
     && dnf clean all
 
@@ -32,6 +33,7 @@ RUN dnf install -y --allowerasing \
     && dnf clean all
 
 RUN systemctl enable \
+    fstrim.timer \
     tlp.service \
     tlp-pd.service \
     acpid.service
