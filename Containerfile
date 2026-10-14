@@ -20,6 +20,7 @@ RUN dnf install -y \
     tor torsocks tpm2-tools transmission-cli \
     helm kustomize kubernetes1.34-client \
     distrobox ghostscript powertop \
+    fuse fuse-libs \
     && dnf clean all
 
 RUN dnf install -y --allowerasing \
