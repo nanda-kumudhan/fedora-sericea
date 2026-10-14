@@ -1,5 +1,5 @@
 ARG FEDORA_VERSION=44
-FROM ghcr.io/fedora-ostree-desktops/sway-atomic:${FEDORA_VERSION}
+FROM quay.io/fedora-ostree-desktops/sway-atomic:${FEDORA_VERSION}
 
 RUN for p in power-profiles-daemon tuned-ppd; do \
       if rpm -q "$p" >/dev/null 2>&1; then dnf remove -y "$p"; fi; \
