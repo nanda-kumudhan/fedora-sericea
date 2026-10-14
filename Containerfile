@@ -1,4 +1,4 @@
-FROM quay.io/fedora-ostree-desktops/sway-atomic:44
+FROM quay.io/fedora-ostree-desktops/sway-atomic:45
 
 RUN dnf install -y \
     thunar-media-tags-plugin \
