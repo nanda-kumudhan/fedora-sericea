@@ -35,3 +35,19 @@ RUN systemctl enable \
     tlp.service \
     tlp-pd.service \
     acpid.service
+
+# --- START: DISPLAY MANAGER CONFIGURATION ---
+# 1. Install raw binaries for greetd and tuigreet
+RUN dnf install -y greetd tuigreet && dnf clean all
+
+# 2. Manage the services: Enable greetd, and mask sddm completely
+RUN systemctl enable greetd.service && \
+    systemctl mask sddm.service
+# --- END: DISPLAY MANAGER CONFIGURATION ---
+
+# Enable your other standard systemd services
+RUN systemctl enable \
+    tlp.service \
+    tlp-pd.service \
+    acpid.service
+
