@@ -26,9 +26,9 @@ RUN dnf install -y \
 RUN dnf install -y --allowerasing \
     cups cups-pk-helper system-config-printer \
     ddcutil fprintd fprintd-pam libfido2 alsa-sof-firmware \
-    ntfs-3g ntfsprogs snapper \
+    ntfs-3g ntfsprogs \
     tlp tlp-pd tlp-rdw \
-    libvirt-daemon-kvm qemu-kvm \
+    libvirt-daemon-kvm qemu-kvm virt-manager \
     waydroid firewalld \
     tpm2-tss \
     && dnf clean all
@@ -47,7 +47,8 @@ RUN systemctl enable \
     fstrim.timer \
     tlp.service \
     tlp-pd.service \
-    acpid.service
+    acpid.service && \
+    systemctl is-enabled fstrim.timer
 
 RUN dnf install -y greetd tuigreet && dnf clean all
 
