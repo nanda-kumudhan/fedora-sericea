@@ -18,14 +18,13 @@ RUN dnf install -y \
     lsof man-db man-pages nano pass ripgrep smartmontools \
     strace tmux tree unzip zip vim-enhanced wget \
     tor torsocks tpm2-tools transmission-cli \
-    helm kustomize kubernetes1.34-client \
     distrobox ghostscript powertop \
     fuse fuse-libs \
     && dnf clean all
 
 RUN dnf install -y --allowerasing \
     cups cups-pk-helper system-config-printer \
-    ddcutil fprintd fprintd-pam libfido2 alsa-sof-firmware \
+    ddcutil fprintd fprintd-pam libfido2 alsa-sof-firmware fwupd \
     ntfs-3g ntfsprogs \
     tlp tlp-pd tlp-rdw \
     libvirt-daemon-kvm qemu-kvm virt-manager \
