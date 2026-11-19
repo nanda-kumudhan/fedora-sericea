@@ -2,7 +2,11 @@
 
 My personal Fedora 45 Sway Atomic image for development and everyday use.
 
+![SericeaPass Sway desktop showing Fedora system information in a terminal](assets/desktop.png)
+
 GitHub Actions publishes the image as `ghcr.io/nanda-kumudhan/my-sway:latest`.
+
+Bitwarden installs from Flathub after boot.
 
 ## Build locally
 

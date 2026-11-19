@@ -1,0 +1,10 @@
+[Unit]
+Description=Preinstall Bitwarden from Flathub
+After=flatpak-add-fedora-repos.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/flatpak remote-add --system --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+ExecStart=/usr/bin/flatpak preinstall --system --assumeyes --noninteractive
+Restart=on-failure
+RestartSec=5min

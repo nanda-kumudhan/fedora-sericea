@@ -26,7 +26,11 @@ RUN dnf install -y \
     tpm2-tss \
     && dnf clean all
 
+COPY config/flatpak/bitwarden.preinstall /usr/share/flatpak/preinstall.d/bitwarden.preinstall
+COPY config/systemd/bitwarden-preinstall.service config/systemd/bitwarden-preinstall.timer /usr/lib/systemd/system/
+
 RUN systemctl enable \
+    bitwarden-preinstall.timer \
     fstrim.timer \
     tlp.service \
     tlp-pd.service \
