@@ -1,4 +1,4 @@
-FROM quay.io/fedora-ostree-desktops/sway-atomic:44
+FROM quay.io/fedora-ostree-desktops/sway-atomic:45
 
 RUN dnf install -y \
     thunar-media-tags-plugin \
@@ -23,21 +23,10 @@ RUN dnf install -y \
     ntfs-3g ntfsprogs \
     tlp tlp-pd tlp-rdw \
     libvirt-daemon-kvm qemu-kvm virt-manager \
-    waydroid firewalld \
     tpm2-tss \
     && dnf clean all
 
-# Configure the permanent firewall offline: no D-Bus/systemd runs during builds.
-# Waydroid supplies DHCP, DNS, IPv4 forwarding and NAT on its own bridge.
-RUN firewall-offline-cmd --zone=trusted --add-interface=waydroid0 && \
-    firewall-offline-cmd --check-config
-
-COPY config/waydroid/10-network.conf /etc/systemd/system/waydroid-container.service.d/10-network.conf
-COPY config/waydroid/90-waydroid.conf /etc/NetworkManager/conf.d/90-waydroid.conf
-
 RUN systemctl enable \
-    firewalld.service \
-    waydroid-container.service \
     fstrim.timer \
     tlp.service \
     tlp-pd.service \
