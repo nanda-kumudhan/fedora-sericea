@@ -1,8 +1,0 @@
-[Unit]
-Description=Start the Bitwarden preinstall after boot
-
-[Timer]
-OnBootSec=30s
-
-[Install]
-WantedBy=timers.target
